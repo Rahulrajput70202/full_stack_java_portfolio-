@@ -1,50 +1,111 @@
-# React + TypeScript + Vite
+# Full Stack Java Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built to showcase full-stack Java development projects, skills, and experience. The frontend is a modern React + TypeScript single-page app, with Supabase powering backend features like the contact form.
 
-Currently, two official plugins are available:
+🔗 **Repo:** [full_stack_java_portfolio-](https://github.com/Rahulrajput70202/full_stack_java_portfolio-)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- Responsive, single-page portfolio layout
+- Smooth animations powered by Framer Motion
+- Contact form with client-side validation (React Hook Form + Zod)
+- Supabase integration for backend data (e.g. contact submissions)
+- Clean icon set via Lucide React
+- Styled with Tailwind CSS
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🛠️ Tech Stack
 
-- Configure the top-level `parserOptions` property like this:
+**Frontend**
+- [React 18](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) — build tool & dev server
+- [Tailwind CSS](https://tailwindcss.com/) — styling
+- [Framer Motion](https://www.framer.com/motion/) — animations
+- [Lucide React](https://lucide.dev/) — icons
+- [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) — form handling & validation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+**Backend / Data**
+- [Supabase](https://supabase.com/) — database & backend services
+
+**Tooling**
+- ESLint (with TypeScript-aware rules)
+- PostCSS + Autoprefixer
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- npm (comes with Node.js)
+- A [Supabase](https://supabase.com/) project (for backend features)
+
+### Installation
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/Rahulrajput70202/full_stack_java_portfolio-.git
+   cd full_stack_java_portfolio-
+   ```
+
+2. Install dependencies
+
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables
+
+   Create a `.env` file in the project root and add your Supabase credentials:
+
+   ```env
+   VITE_SUPABASE_URL=your-supabase-project-url
+   VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+   ```
+
+4. Run the development server
+
+   ```bash
+   npm run dev
+   ```
+
+   The app will be available at `http://localhost:5173`.
+
+## 📜 Available Scripts
+
+| Command           | Description                              |
+| ----------------- | ----------------------------------------- |
+| `npm run dev`     | Starts the development server with HMR    |
+| `npm run build`   | Type-checks and builds for production     |
+| `npm run preview` | Previews the production build locally     |
+| `npm run lint`    | Runs ESLint across the project            |
+
+## 📁 Project Structure
+
+```
+├── public/                 # Static assets
+├── src/                    # Application source code
+├── supabase/
+│   └── migrations/         # Supabase database migrations
+├── index.html
+├── vite.config.ts
+├── tailwind.config.js
+└── package.json
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🚀 Deployment
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+This project builds to a static site via `npm run build`, producing a `dist/` folder that can be deployed to any static hosting provider (Vercel, Netlify, GitHub Pages, etc.). Be sure to configure the same environment variables on your hosting platform.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome. Feel free to check the [issues page](https://github.com/Rahulrajput70202/full_stack_java_portfolio-/issues).
+
+## 📄 License
+
+This project is currently unlicensed. Add a license file if you'd like to specify usage terms.
+
+## 👤 Author
+
+**Rahul Rajput**
+- GitHub: [@Rahulrajput70202](https://github.com/Rahulrajput70202)
