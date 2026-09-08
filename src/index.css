@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #ffffff;
+    --bg-secondary: #f8fafc;
+    --text: #0f172a;
+    --text-secondary: #475569;
+    --border: #e2e8f0;
+    --card: rgba(255, 255, 255, 0.7);
+    --accent: #10b981;
+    --accent-rgb: 16, 185, 129;
+  }
+
+  .dark {
+    --bg: #0a0a0f;
+    --bg-secondary: #111118;
+    --text: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border: #1e293b;
+    --card: rgba(17, 17, 24, 0.7);
+    --accent: #10b981;
+    --accent-rgb: 16, 185, 129;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(var(--accent-rgb), 0.3);
+    color: var(--text);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(var(--accent-rgb), 0.4);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--accent-rgb), 0.6);
+  }
+}
+
+@layer components {
+  .glass {
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+  }
+
+  .section-container {
+    @apply mx-auto w-full max-w-6xl px-6 py-20 md:py-28;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    @apply font-bold tracking-tight;
+  }
+
+  .text-muted {
+    color: var(--text-secondary);
+  }
+
+  .accent-text {
+    color: var(--accent);
+  }
+
+  .accent-bg {
+    background-color: var(--accent);
+  }
+
+  .tech-tag {
+    @apply inline-flex items-center rounded-md bg-[rgba(var(--accent-rgb),0.1)] px-2.5 py-1 font-mono text-xs font-medium text-[rgb(var(--accent-rgb))] border border-[rgba(var(--accent-rgb),0.2)];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-semibold text-white transition-all;
+    background: var(--accent);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.4);
+    transform: scale(1.03);
+  }
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+
+  .field-input {
+    @apply w-full rounded-lg border bg-transparent px-4 py-3 text-sm outline-none transition-colors placeholder:text-slate-500;
+    color: var(--text);
+  }
+  .field-input:focus {
+    border-color: rgba(var(--accent-rgb), 0.7);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.1);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-semibold transition-all;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover {
+    border-color: rgba(var(--accent-rgb), 0.5);
+    color: var(--accent);
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.15);
+  }
+  .btn-secondary:active {
+    transform: scale(0.97);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glow-border {
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.15);
+  }
+
+  .perspective {
+    perspective: 1000px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.custom-cursor {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .custom-cursor {
+    display: none !important;
+  }
+}

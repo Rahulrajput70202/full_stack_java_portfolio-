@@ -1,0 +1,8 @@
+import { motion } from 'framer-motion'
+import { Award, GraduationCap, MapPin } from 'lucide-react'
+import { education } from '../data/portfolioData'
+import { fadeInUp, viewportOnce } from '../lib/animations'
+
+export default function Education() {
+  return <section id="education" className="border-t" style={{ background: 'var(--bg-secondary)' }}><div className="section-container"><motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={fadeInUp}><p className="mb-3 font-mono text-sm accent-text">05 / education</p><h2 className="section-title">The Foundation</h2></motion.div><motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={fadeInUp} className="glass mt-10 overflow-hidden rounded-2xl"><div className="grid gap-8 p-7 sm:p-10 md:grid-cols-[auto_1fr_auto] md:items-center"><div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[rgba(var(--accent-rgb),0.1)] accent-text"><GraduationCap size={32} strokeWidth={1.5} /></div><div><h3 className="text-xl font-semibold sm:text-2xl">{education.degree}</h3><p className="mt-2 text-base accent-text">{education.college}</p><div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted"><span>{education.university}</span><span className="flex items-center gap-1"><MapPin size={14} />{education.location}</span></div></div><div className="flex items-center gap-3 md:flex-col md:items-end"><div className="flex items-center gap-2 rounded-lg bg-[rgba(var(--accent-rgb),0.1)] px-3 py-2"><Award size={16} className="accent-text" /><span className="font-semibold accent-text">CGPA {education.cgpa}</span></div><span className="font-mono text-xs text-muted">{education.dates}</span></div></div></motion.div></div></section>
+}
